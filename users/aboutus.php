@@ -1,9 +1,3 @@
-<?php
-// the 'users' folder has all the files for patients
-// index.php file is patient-homepage
-// start ur html after the closing php tags
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,21 +8,21 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title> User Homepage </title>
+    <title> About Us </title>
   </head>
   <body>
-
-    <!-- NAVBAR -->
+    
+<!-- NAVBAR -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Smart Info</a>
+  <a class="navbar-brand" class="navbar-link" href="index.php">Smart Info</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="aboutus.php"> About Us </a>
+      <li class="nav-item active">
+        <a class="nav-link" href="aboutus.php"> About Us <span class="sr-only">(current)</span> </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
@@ -46,7 +40,7 @@
   </div>
 </nav>
 
-    
+    <h1> About Us </h1>
 
 
 
