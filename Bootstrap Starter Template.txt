@@ -1,9 +1,3 @@
-<?php
-// the 'users' folder has all the files for patients
-// index.php file is patient-homepage
-// start ur html after the closing php tags
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title> User Homepage </title>
+    <title> Bootstrap Starter Template</title>
   </head>
   <body>
     
