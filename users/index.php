@@ -69,13 +69,14 @@
 
   
 <div class="p-3 mb-2 bg-dark text-white">  
+  <div class="text-monospace">
+    
   <footer>
-  <p class="text-center"> Created by<br> Hirva  Maitra  Swapnil  Siddharth </p>
+  <p class="text-center"> Created by<br> Hirva Maitra Swapnil Siddharth </p>
 
   </footer>
 </div>
-
-
+</div>
 
 
 
