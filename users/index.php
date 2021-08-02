@@ -26,7 +26,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" >
       <li class="nav-item">
         <a class="nav-link" href="aboutus.php"> About Us </a>
       </li>
@@ -68,7 +68,12 @@
 </div>
 
   
+<div class="p-3 mb-2 bg-dark text-white">  
+  <footer>
+  <p class="text-center"> Created by<br> Hirva  Maitra  Swapnil  Siddharth </p>
 
+  </footer>
+</div>
 
 
 
