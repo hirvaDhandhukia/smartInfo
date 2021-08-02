@@ -46,11 +46,26 @@
   </div>
 </nav>
 
-<h1>Homepage</h1>
 
+<!-- Photo with Card -->
 
-
-
+<br><br>
+<div class="container">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="" alt="">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Smart Info</h5>
+        <p class="card-text">Our Smart Info is a powerful tool for all doctors who use it. With your fingertips, you can access all of the patients medical history. The database will also store their retina and fingerprint information for extra security. Our unique technology combines the accuracy and security of fingerprint scanning with a patients existing identity documents such as an Aadhar Card to create an unparalleled way to store and share patient information. The result is an automated, paperless system that frees up doctors to spend more time with each patient – hearing their stories, learning about their lives, and connecting on a personal level.</p>
+        <p class="card-text"><small class="text-muted"></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 
 
