@@ -14,31 +14,34 @@
     
 <!-- NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" class="navbar-link" href="index.php">Smart Info</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="index.php">Smart Info</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" >
       <li class="nav-item">
-        <a class="nav-link" href="aboutus.php"> About Us <span class="sr-only">(current)</span> </a>
+        <a class="nav-link" href="aboutus.php"> About Us </a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="contactus.php"> Contact Us <span class="sr-only">(current)</span> </a>
+        <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="profile.php"> Profile </a>
+      </li>
+    </ul>
+    
+    <ul class="nav navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" href="register.php"> Register </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login.php"> Log In </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="profile.php"> Profile </a>
-      </li>
     </ul>
   </div>
-</nav>
+  </nav>
 
 
     <h1> Contact Us </h1>
