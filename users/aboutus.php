@@ -59,10 +59,32 @@
 
 
 
+<!-- FOOTER -->
+<footer>
+  <div class="p-3 mb-2 bg-dark text-white">  
+  <div class="text-monospace">
+  <p class="text-center">Created by</p>
+
+  <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/hirvaDhandhukia">Hirva</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/maitrakhatri">Maitra</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/siddharth1332">Siddharth</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/luciferwrath21">Swapnil</a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </footer>
 
     
-
-    <!-- Optional JavaScript; choose one of the two! -->
+<!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
