@@ -86,6 +86,16 @@
   </div>
 
   <div class="form-group">
+    <label for="validationCustom03">Aadhar Number</label>
+    <input type="" class="form-control" id="validationCustom03"  pattern="\d*" minlength="10" maxlength="10" required>
+    <div class="invalid-feedback"> Enter 10 digit Aadhar Number</div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+
+
+  <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <div class="invalid-feedback"> Enter a valid Email Id</div>
@@ -111,18 +121,8 @@
     </div>
   </div>
   
-  <div class="form-group">
-    <label for="validationCustom03">Aadhar Number</label>
-    <input type="" class="form-control" id="validationCustom03"  pattern="\d*" minlength="10" maxlength="10" required>
-    <div class="invalid-feedback"> Enter 10 digit Aadhar Number</div>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
-  </div>
 
-
-
-<button class="btn btn-primary" type="submit">Submit form</button>
+<button class="btn btn-primary" type="submit">Register</button>
 </form>
 
 <script>
