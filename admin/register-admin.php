@@ -85,7 +85,7 @@
         Looks good!
       </div>
     </div>
-  </div>
+  
 
 <div class="col-md-6 mb-3">
       <label for="validationCustom02">Date of birth</label>
@@ -94,6 +94,7 @@
         Looks good!
       </div>
     </div>
+  </div>
 
   <div class="form-group">
     <label for="validationCustom03">Registration Number</label>
@@ -171,8 +172,8 @@
 </div>
 </div>
 </div>
-
-    
+<br>
+<br>
 
 
 

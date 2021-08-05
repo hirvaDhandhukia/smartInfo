@@ -125,6 +125,30 @@
 
 
 
+<!-- FOOTER -->
+<footer>
+  <div class="p-3 mb-2 bg-dark text-white">  
+  <div class="text-monospace">
+  <p class="text-center">Created by</p>
+
+  <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/hirvaDhandhukia">Hirva</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/maitrakhatri">Maitra</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/siddharth1332">Siddharth</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/luciferwrath21">Swapnil</a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </footer> 
+
 
 
 
