@@ -87,6 +87,14 @@
     </div>
   </div>
 
+<div class="col-md-6 mb-3">
+      <label for="validationCustom02">Date of birth</label>
+      <input type="date" class="form-control" id="validationCustom02"  required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
   <div class="form-group">
     <label for="validationCustom03">Registration Number</label>
     <input type="" class="form-control" id="validationCustom03"  required>
