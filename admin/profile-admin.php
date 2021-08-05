@@ -73,6 +73,9 @@
   <dt class="col-sm-3">Registration Number</dt>
   <dd class="col-sm-9">MK 956425</dd>
 
+   <dt class="col-sm-3">Speciality</dt>
+  <dd class="col-sm-9">ENT Surgeon</dd>
+
     </dl>
   </dd>
 </dl>
