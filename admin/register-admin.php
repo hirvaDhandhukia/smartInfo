@@ -105,6 +105,17 @@
     <small class="form-text text-muted"> You're account will be created once we verify your Registration Number</small>
   </div>
 
+<div class="form-group">
+    <label for="validationCustom03">Speciality</label>
+    <input type="" class="form-control" id="validationCustom03"  required>
+    <div class="invalid-feedback"> Enter your speciality</div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    
+  </div>
+
+
 
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
