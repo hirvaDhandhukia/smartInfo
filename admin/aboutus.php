@@ -15,7 +15,7 @@
 <!-- NAVBAR -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="index.php">Smart Info</a>
+  <a class="navbar-brand" href="index-admin.php">Smart Info</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -28,16 +28,19 @@
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="profile.php"> Profile </a>
+        <a class="nav-link" href="profile-admin.php"> Profile </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All user info </a>
       </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="register.php"> Register </a>
+        <a class="nav-link" href="register-admin.php"> Register </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.php"> Log In </a>
+        <a class="nav-link" href="login-admin.php"> Log In </a>
       </li>
     </ul>
   </div>

@@ -29,7 +29,7 @@
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="profile.php"> Profile </a>
+        <a class="nav-link" href="profile-admin.php"> Profile </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="alluserinfo.php"> All user info </a>
@@ -38,7 +38,7 @@
     
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="register.php"> Register </a>
+        <a class="nav-link" href="register-admin.php"> Register </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login-admin.php"> Log In </a>
