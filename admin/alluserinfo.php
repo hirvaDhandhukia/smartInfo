@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title> Bootstrap Starter Template</title>
+    <title> All User Info</title>
   </head>
   <body>
     
@@ -48,6 +48,80 @@
 
 
 
+<br>
+<br>
+<div class="container">
+<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
+<br>
+
+
+<br>
+<div class="card text-dark bg-light mb-3">
+  <div class="card-header bg-dark text-light">
+    User Info
+  </div>
+  <div class="card-body">
+
+<dl class="row">
+  <dt class="col-sm-3">Name</dt>
+  <dd class="col-sm-9">Maitra Khatri</dd>
+
+  <dt class="col-sm-3">DOB</dt>
+  <dd class="col-sm-9">
+    <p>03/05/2001</p>
+    
+  </dd>
+
+  <dt class="col-sm-3">Email</dt>
+  <dd class="col-sm-9">maitrakhatri@gmail.com</dd>
+
+  <dt class="col-sm-3">Aadhar Number</dt>
+  <dd class="col-sm-9">55555 22222</dd>
+
+    </dl>
+  </dd>
+</dl>
+</div>
+</div>
+
+
+<br>
+<div class="card text-dark bg-light mb-3">
+  <div class="card-header bg-dark text-light">
+    Medical Report
+  </div>
+  <div class="card-body">
+
+<dl class="row">
+  <dt class="col-sm-3">Blood Group</dt>
+  <dd class="col-sm-9">O+</dd>
+
+  <dt class="col-sm-3">Allergies/Genetic Disorder</dt>
+  <dd class="col-sm-9">
+    <p>Penut Butter</p>
+    <p>Dust</p>
+    <p>Thelesemia Minor</p>
+
+  </dd>
+
+  <dt class="col-sm-3">Medical History</dt>
+  <dd class="col-sm-9">Lactose Intolerant</dd>
+
+  
+
+    </dl>
+  </dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+  </div>
+<br>
 
 
 
