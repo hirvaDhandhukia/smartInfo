@@ -62,7 +62,7 @@
 
   <dt class="col-sm-3">DOB</dt>
   <dd class="col-sm-9">
-    <p>03/05/2001</p>
+    <span type="date">03/05/2001</span>
     
   </dd>
 

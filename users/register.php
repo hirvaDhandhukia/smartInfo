@@ -85,6 +85,14 @@
     </div>
   </div>
 
+<div class="col-md-6 mb-3">
+      <label for="validationCustom02">Date of birth</label>
+      <input type="date" class="form-control" id="validationCustom02"  required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
   <div class="form-group">
     <label for="validationCustom03">Aadhar Number</label>
     <input type="" class="form-control" id="validationCustom03"  pattern="\d*" minlength="10" maxlength="10" required>
