@@ -44,7 +44,73 @@
   </nav>
 
 
-    <h1>Profile</h1>
+    
+
+
+<div class="container">
+  <h1>Profile</h1>
+<br>
+<div class="card text-dark bg-light mb-3">
+  <div class="card-header bg-dark text-light">
+    User Info
+  </div>
+  <div class="card-body">
+
+<dl class="row">
+  <dt class="col-sm-3">Name</dt>
+  <dd class="col-sm-9">Maitra Khatri</dd>
+
+  <dt class="col-sm-3">DOB</dt>
+  <dd class="col-sm-9">
+    <p>03/05/2001</p>
+    
+  </dd>
+
+  <dt class="col-sm-3">Email</dt>
+  <dd class="col-sm-9">maitrakhatri@gmail.com</dd>
+
+  <dt class="col-sm-3">Aadhar Number</dt>
+  <dd class="col-sm-9">55555 22222</dd>
+
+    </dl>
+  </dd>
+</dl>
+</div>
+</div>
+
+
+
+<br>
+<div class="card text-dark bg-light mb-3">
+  <div class="card-header bg-dark text-light">
+    Medical Report
+  </div>
+  <div class="card-body">
+
+<dl class="row">
+  <dt class="col-sm-3">Blood Group</dt>
+  <dd class="col-sm-9">O+</dd>
+
+  <dt class="col-sm-3">Allergies/Genetic Disorder</dt>
+  <dd class="col-sm-9">
+    <p>Penut Butter</p>
+    <p>Dust</p>
+    <p>Thelesemia Minor</p>
+
+  </dd>
+
+  <dt class="col-sm-3">Medical History</dt>
+  <dd class="col-sm-9">Lactose Intolerant</dd>
+
+  
+
+    </dl>
+  </dd>
+</dl>
+</div>
+</div>
+</div>
+
     
 
 
