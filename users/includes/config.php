@@ -10,5 +10,5 @@ $dbName = 'smartinfo';
 $conn = mysqli_connect($dbServerName, $dbUsername, $dbPassword, $dbName);
 
 if(!$conn) {
-	die('Error connecting to database');
+	die('Error connecting to database' . mysqli_connect_error());
 }
