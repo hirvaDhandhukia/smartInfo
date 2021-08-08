@@ -31,7 +31,7 @@ if(isset($_POST["submit"])) {
 		header("location: ../register.php?error=passwordsdontmatch");
 		exit();
 	}
-	if(emailExists($conn, $email) !== false) {
+	if(emailExists($conn, $email, $aadharno) !== false) {
 		header("location: ../register.php?error=emailtaken");
 		exit();
 	}
