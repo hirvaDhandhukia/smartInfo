@@ -111,8 +111,8 @@ function loginUser($conn, $email, $password) {
 		// start session and login the user
 		session_start();
 		// creating superglobal session variables
-		$_SESSIONS["userid"] = $emailExists["id"];
-		$_SESSIONS["useraadh"] = $emailExists["aadharno"];
+		$_SESSION["userid"] = $emailExists["id"];
+		$_SESSION["useraadh"] = $emailExists["aadharno"];
 		header("location: ../index.php");
 		exit();
 	}

@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,12 +39,16 @@
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="register.php"> Register </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.php"> Log In </a>
-      </li>
+      <?php
+        // check if the user is loggedin or not
+        if(isset($_SESSION['useraadh'])) {
+          echo '<li class="nav-item"><a class="nav-link" href="profile.php"> Profile page </a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="logout.php"> Log Out </a></li>';
+        } else {
+          echo '<li class="nav-item"><a class="nav-link" href="register.php"> Register </a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="login.php"> Log In </a></li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
