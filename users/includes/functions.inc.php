@@ -1,7 +1,5 @@
 <?php
 
-// require_once 'config.php';
-
 function emptyInputRegister($fname, $lname, $email, $aadharno, $dob, $password, $cpassword) {
 	$result;
 	if(empty($fname) || empty($lname) || empty($email) || empty($aadharno) || empty($dob) || empty($password) || empty($cpassword)) {
@@ -82,5 +80,40 @@ function createUser($conn, $fname, $lname, $email, $aadharno, $dob, $password) {
 	mysqli_stmt_close($stmt);
 
 	header("location: ../register.php?error=none");
+	exit();
+}
+
+function emptyInputLogin($email, $password) {
+	$result;
+	if(empty($email) || empty($password)) {
+		$result = true;
+	} else {
+		$result = false;
+	}
+	return $result;
+}
+
+function loginUser($conn, $email, $password) {
+	$emailExists = emailExists($conn, $email, $email);
+
+	if ($emailExists === false) {
+		header("location: ../login.php?error=wronglogin");
 		exit();
+	}
+
+	$pwdHashed = $emailExists['password'];
+	$checkPwd = password_verify($password, $pwdHashed);
+	if($checkPwd === false) {
+		// incorrect password
+		header("location: ../login.php?error=wronglogin");
+		exit();
+	} else if ($checkPwd === true) {
+		// start session and login the user
+		session_start();
+		// creating superglobal session variables
+		$_SESSIONS["userid"] = $emailExists["id"];
+		$_SESSIONS["useraadh"] = $emailExists["aadharno"];
+		header("location: ../index.php");
+		exit();
+	}
 }

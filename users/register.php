@@ -47,29 +47,29 @@
 
   <?php
   if(isset($_GET['error'])) {
-    if($_GET['error'] == "emptyinput") {
-      echo "<p>Fill in all fields</p>";
+    if($_GET['error'] == 'emptyinput') {
+      echo '<p>Fill in all fields</p>';
     }
-    else if ($_GET['error'] == "invalidaadhar") {
-      echo "<p>Enter a correct aadhar number</p>";
+    else if ($_GET['error'] == 'invalidaadhar') {
+      echo '<p>Enter a correct aadhar number</p>';
     }
-    else if ($_GET['error'] == "invalidemail") {
-      echo "<p>Fill in correct email</p>";
+    else if ($_GET['error'] == 'invalidemail') {
+      echo '<p>Fill in correct email</p>';
     }
-    else if ($_GET['error'] == "passwordsdontmatch") {
-      echo "<p>Passwords doesn't match</p>";
+    else if ($_GET['error'] == 'passwordsdontmatch') {
+      echo '<p>Passwords does not match</p>';
     }
-    else if ($_GET['error'] == "stmtfailed") {
-      echo "<p>Something went wrong. Please try again.</p>";
+    else if ($_GET['error'] == 'stmtfailed') {
+      echo '<p>Something went wrong. Please try again.</p>';
     }
-    else if ($_GET['error'] == "stmtfailedcreateuser") {
-      echo "<p>Something went wrong. Please try again.</p>";
+    else if ($_GET['error'] == 'stmtfailedcreateuser') {
+      echo '<p>Something went wrong. Please try again.</p>';
     }
-    else if ($_GET['error'] == "emailtaken") {
-      echo "<p>Email or Aadhar number already taken, try anything else.</p>";
+    else if ($_GET['error'] == 'emailtaken') {
+      echo '<p>Email or Aadhar number already taken, try anything else.</p>';
     }
-    else if ($_GET['error'] == "none") {
-      echo "<p>Registration Success!</p>";
+    else if ($_GET['error'] == 'none') {
+      echo '<p>Registration Success!</p>';
     }
   }
 ?>
