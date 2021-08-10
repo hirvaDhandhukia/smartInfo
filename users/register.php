@@ -135,7 +135,7 @@ oninput='cpassword.setCustomValidity(cpassword.value != password.value ? "Passwo
   <div class="form-group">
     <label for="validationCustom03">Aadhar Number</label>
     <input name="aadharno" class="form-control" id="validationCustom03"  pattern="\d*" minlength="12" maxlength="12" required>
-    <div class="invalid-feedback"> Enter 10 digit Aadhar Number</div>
+    <div class="invalid-feedback"> Enter 12 digit Aadhar Number</div>
     <div class="valid-feedback">
       Looks good!
     </div>

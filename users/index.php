@@ -1,6 +1,5 @@
 <?php
   session_start();
-  var_dump($_SESSION);
 ?>
 <!doctype html>
 <html lang="en">
@@ -67,6 +66,13 @@
 <div class="card">
       <h1 class="card-header bg-light text-dark"> Smart Info</h1>
       <div class="card-body">
+        <?php
+        if(isset($_SESSION['useraadh'])) {
+          echo '<p>Welcome, you are signed in with aadhar number: ' . $_SESSION["useraadh"] . '</p>';
+        } else {
+          echo '<p>Please login or register to start your account</p>';
+        }
+      ?>
         <p class="card-text">Our Smart Info is a powerful tool for all doctors who use it. With your fingertips, you can access all of the patients medical history. The database will also store their retina and fingerprint information for extra security. Our unique technology combines the accuracy and security of fingerprint scanning with a patients existing identity documents such as an Aadhar Card to create an unparalleled way to store and share patient information. The result is an automated, paperless system that frees up doctors to spend more time with each patient – hearing their stories, learning about their lives, and connecting on a personal level.</p>
         <p class="card-text"><small class="text-muted"></small></p>
       </div>
