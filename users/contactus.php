@@ -86,29 +86,29 @@
   
   <div class="form-row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="First name" required>
+      <input name="fname" type="text" class="form-control" placeholder="First name" required>
       <div class="invalid-feedback"> Please enter your name</div>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Last name" required>
+      <input name="lname" type="text" class="form-control" placeholder="Last name" required>
       <div class="invalid-feedback"> Please enter your name</div>
     </div>
   </div>
 
   <div class="form-group">
     <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
   </div>
 
   <div class="mb-3">
     <label for="validationTextarea">Message for us</label>
-    <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+    <textarea name="message" class="form-control" id="validationTextarea" placeholder="Required example textarea" required></textarea>
     <div class="invalid-feedback">
       Please enter a message here
     </div>
   </div>
 </div>
- <button type="submit" class="btn btn-outline-primary">Submit</button>
+ <button name="submit" type="submit" class="btn btn-outline-primary">Submit</button>
 
 </form>
 </div>
