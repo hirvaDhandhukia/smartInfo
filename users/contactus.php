@@ -58,8 +58,24 @@
   </nav>
 
 
-    
+  <?php
+  if(isset($_GET['error'])) {
+    if($_GET['error'] == 'emptyinput') {
+      echo '<p>Fill in all fields</p>';
+    }
+    else if ($_GET['error'] == 'stmtfailedsendmsg') {
+      echo '<p>Failed to send msg, there was an error with system. Try again.</p>';
+    }
+    else if ($_GET['error'] == 'invalidemail') {
+      echo '<p>Fill in correct email</p>';
+    }
+    else if ($_GET['error'] == 'none') {
+      echo '<p>Message sent successfully! We will contact you shortly.</p>';
+    }
+  }
+?>
 
+    
 
 
 <br>

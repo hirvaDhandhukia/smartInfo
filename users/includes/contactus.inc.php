@@ -12,7 +12,7 @@ if(isset($_POST["submit"])) {
 	require_once 'config.php';
 	require_once 'functions.inc.php';
 
-	if(emptyInputRegister($fname, $lname, $email, $message) !== false) {
+	if(emptyInputContactus($fname, $lname, $email, $message) !== false) {
 		header("location: ../contactus.php?error=emptyinput");
 		exit();
 	}
