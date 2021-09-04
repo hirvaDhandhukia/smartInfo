@@ -1,5 +1,7 @@
 <?php
   session_start();
+  require_once "includes/config.php";
+  $useraadh = $_SESSION['useraadh'];
 ?>
 
 <!doctype html>
@@ -53,7 +55,7 @@
 
 
 <div class="container">
-  <h1>Profile</h1>
+  <h2>Profile</h2>
 <br>
 <div class="card text-dark bg-light mb-3">
   <div class="card-header bg-dark text-light">
@@ -63,19 +65,52 @@
 
 <dl class="row">
   <dt class="col-sm-3">Name</dt>
-  <dd class="col-sm-9">Maitra Khatri</dd>
+  <dd class="col-sm-9">
+    <?php
+      $sqlfname = "SELECT * FROM users WHERE aadharno='$useraadh';";
+      $resultfname = mysqli_query($conn, $sqlfname);
+      if(mysqli_num_rows($resultfname)>0) {
+          $rowfname = mysqli_fetch_assoc($resultfname);
+          echo $rowfname['fname'] . ' ' . $rowfname['lname'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+    </dd>
 
   <dt class="col-sm-3">DOB</dt>
   <dd class="col-sm-9">
-    <span type="date">03/05/2001</span>
+    <span type="date">
+      <?php
+      $sqldob = "SELECT * FROM users WHERE aadharno='$useraadh';";
+      $resultdob = mysqli_query($conn, $sqldob);
+      if(mysqli_num_rows($resultdob)>0) {
+          $rowdob = mysqli_fetch_assoc($resultdob);
+          echo $rowdob['dob'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+    </span>
     
   </dd>
 
   <dt class="col-sm-3">Email</dt>
-  <dd class="col-sm-9">maitrakhatri@gmail.com</dd>
+  <dd class="col-sm-9">
+    <?php
+      $sqlemail = "SELECT * FROM users WHERE aadharno='$useraadh';";
+      $resultemail = mysqli_query($conn, $sqlemail);
+      if(mysqli_num_rows($resultemail)>0) {
+          $rowemail = mysqli_fetch_assoc($resultemail);
+          echo $rowemail['email'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+  </dd>
 
   <dt class="col-sm-3">Aadhar Number</dt>
-  <dd class="col-sm-9">55555 22222</dd>
+  <dd class="col-sm-9"><?php echo $_SESSION["useraadh"]; ?></dd>
 
     </dl>
   </dd>
