@@ -82,7 +82,7 @@
   </div>
 
  <div class="card-body">
-<form>
+<form action="includes/contactus.inc.php" method="post">
   
   <div class="form-row">
     <div class="col">
