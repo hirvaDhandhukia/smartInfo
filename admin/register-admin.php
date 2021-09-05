@@ -42,6 +42,7 @@
           echo '<li class="nav-item">
         <a class="nav-link" href="alluserinfo.php"> All user info </a>
       </li>';
+          echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
         } else {
           echo '<li class="nav-item">
         <a class="nav-link" href="register-admin.php"> Register </a>

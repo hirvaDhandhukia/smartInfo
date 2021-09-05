@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,21 +28,22 @@
       <li class="nav-item">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="profile-admin.php"> Profile </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="register-admin.php"> Register </a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="login-admin.php"> Log In </a>
-      </li>
+      <?php
+        // check if the user is loggedin or not
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<li class="nav-item"><a class="nav-link" href="profile-admin.php"> Profile </a></li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All user info </a>
+      </li>';
+          echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
+        } else {
+          echo '<li class="nav-item"><a class="nav-link" href="register-admin.php"> Register </a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="login-admin.php"> Log In </a></li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
