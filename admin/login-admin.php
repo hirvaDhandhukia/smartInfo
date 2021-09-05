@@ -72,24 +72,24 @@
 <div class="container">
 
 
-<form class="needs-validation" novalidate>
+<form action="includes/login-admin.inc.php" method="post" class="needs-validation" novalidate>
   <div class="form-group">
     <label>Email Address/Registration ID</label>
-    <input type="" class="form-control" id="validationCustom01"  required>
+    <input name="email" type="" class="form-control" id="validationCustom01" required>
     <div class="invalid-feedback"> Enter a valid Email Id or Registration ID </div>
     <small id="emailHelp" class="form-text text-muted">Enter your Registered Email address or Registration ID</small>
   </div>
 
    <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" required name="up" >
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
     <div class="invalid-feedback"> Please enter your password</div>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
 
-  <button class="btn btn-primary" type="submit">Log In</button>
+  <button name="submit" class="btn btn-primary" type="submit">Log In</button>
 
   
 

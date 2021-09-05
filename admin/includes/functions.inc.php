@@ -83,3 +83,38 @@ function createAdmin($conn, $fname, $lname, $email, $aadharno, $dob, $regno, $sp
 	exit();
 }
 
+function emptyInputLogin($email, $password) {
+	$result;
+	if(empty($email) || empty($password)) {
+		$result = true;
+	} else {
+		$result = false;
+	}
+	return $result;
+}
+
+function loginAdmin($conn, $email, $password) {
+	$emailExists = emailExists($conn, $email, $email, $email);
+
+	if ($emailExists === false) {
+		header("location: ../login-admin.php?error=wronglogin");
+		exit();
+	}
+
+	$pwdHashed = $emailExists['password'];
+	$checkPwd = password_verify($password, $pwdHashed);
+	if($checkPwd === false) {
+		// incorrect password
+		header("location: ../login-admin.php?error=wronglogin");
+		exit();
+	} else if ($checkPwd === true) {
+		// start session and login the user
+		session_start();
+		// creating superglobal session variables
+		$_SESSION["adminid"] = $emailExists["id"];
+		$_SESSION["adminaadh"] = $emailExists["aadharno"];
+		header("location: ../index-admin.php");
+		exit();
+	}
+}
+
