@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  require_once "includes/config.php";
+  $adminaadh = $_SESSION['adminaadh'];
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,21 +33,22 @@
       <li class="nav-item">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="profile-admin.php"> Profile </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="register-admin.php"> Register </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login-admin.php"> Log In </a>
-      </li>
+      <?php
+        // check if the user is loggedin or not
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<li class="nav-item"><a class="nav-link" href="profile-admin.php"> Profile </a></li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All user info </a>
+      </li>';
+          echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
+        } else {
+          echo '<li class="nav-item"><a class="nav-link" href="register-admin.php"> Register </a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="login-admin.php"> Log In </a></li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
@@ -59,22 +66,76 @@
 
 <dl class="row">
   <dt class="col-sm-3">Name</dt>
-  <dd class="col-sm-9">Maitra Khatri</dd>
+  <dd class="col-sm-9">
+    <?php
+      $sqlfname = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
+      $resultfname = mysqli_query($conn, $sqlfname);
+      if(mysqli_num_rows($resultfname)>0) {
+          $rowfname = mysqli_fetch_assoc($resultfname);
+          echo $rowfname['fname'] . ' ' . $rowfname['lname'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+  </dd>
 
   <dt class="col-sm-3">DOB</dt>
   <dd class="col-sm-9">
-    <span type="date">03/05/2001</span>
-    
+    <span type="date">
+      <?php
+      $sqldob = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
+      $resultdob = mysqli_query($conn, $sqldob);
+      if(mysqli_num_rows($resultdob)>0) {
+          $rowdob = mysqli_fetch_assoc($resultdob);
+          echo $rowdob['dob'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+    </span>   
   </dd>
 
   <dt class="col-sm-3">Email</dt>
-  <dd class="col-sm-9">maitrakhatri@gmail.com</dd>
+  <dd class="col-sm-9">
+    <?php
+      $sqlemail = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
+      $resultemail = mysqli_query($conn, $sqlemail);
+      if(mysqli_num_rows($resultemail)>0) {
+          $rowemail = mysqli_fetch_assoc($resultemail);
+          echo $rowemail['email'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+  </dd>
 
   <dt class="col-sm-3">Registration Number</dt>
-  <dd class="col-sm-9">MK 956425</dd>
+  <dd class="col-sm-9">
+    <?php
+      $sqlregno = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
+      $resultregno = mysqli_query($conn, $sqlregno);
+      if(mysqli_num_rows($resultregno)>0) {
+          $rowregno = mysqli_fetch_assoc($resultregno);
+          echo $rowregno['regno'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+  </dd>
 
    <dt class="col-sm-3">Speciality</dt>
-  <dd class="col-sm-9">ENT Surgeon</dd>
+  <dd class="col-sm-9">
+    <?php
+      $sqlspec = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
+      $resultspec = mysqli_query($conn, $sqlspec);
+      if(mysqli_num_rows($resultspec)>0) {
+          $rowspec = mysqli_fetch_assoc($resultspec);
+          echo $rowspec['speciality'];
+      } else {
+          echo "Row not found";
+      }
+    ?>
+  </dd>
 
     </dl>
   </dd>
