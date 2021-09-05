@@ -45,7 +45,7 @@ function pwdMatch($password, $cpassword) {
 }
 
 function emailExists($conn, $email, $aadharno, $regno) {
-	$sql = "SELECT * FROM users WHERE email = ? OR aadharno = ? OR regno = ?;";
+	$sql = "SELECT * FROM admin WHERE email = ? OR aadharno = ? OR regno = ?;";
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt, $sql)) {
 		header("location: ../register-admin.php?error=stmtfailed");
