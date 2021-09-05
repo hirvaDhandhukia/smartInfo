@@ -66,7 +66,7 @@ function emailExists($conn, $email, $aadharno, $regno) {
 }
 
 function createAdmin($conn, $fname, $lname, $email, $aadharno, $dob, $regno, $speciality, $password) {
-	$sql = "INSERT INTO admin (fname, lname, email, aadharno, dob, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+	$sql = "INSERT INTO admin (fname, lname, email, aadharno, dob, regno, speciality, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt, $sql)) {
 		header("location: ../register-admin.php?error=stmtfailedcreateadmin");
