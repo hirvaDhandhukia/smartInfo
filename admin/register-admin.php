@@ -76,7 +76,7 @@
 <div class="container">
 
 <!-- Password Validation -->
-<form action="register-admin.inc.php" method="post" class="needs-validation" novalidate  oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
+<form action="includes/register-admin.inc.php" method="post" class="needs-validation" novalidate  oninput='cpassword.setCustomValidity(cpassword.value != password.value ? "Passwords do not match." : "")'>
 
   <div class="form-row">
     <div class="col-md-6 mb-3">
@@ -145,7 +145,7 @@
   <div class="form-row">
     <div class="col-md-6 mb-3">
     <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required name="up" pattern="(?=.*\d)(?=.*[a-z]).{6,}" title="Must contain at least one number and lowercase letter, and at least 6 or more characters">
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required pattern="(?=.*\d)(?=.*[a-z]).{6,}" title="Must contain at least one number and lowercase letter, and at least 6 or more characters">
     <div class="invalid-feedback"> Must contain at least one number and lowercase letter, and at least 6 or more characters</div>
     <div class="valid-feedback">
       Looks good!
@@ -154,7 +154,7 @@
 
 <div class="col-md-6 mb-3">
     <label for="exampleInputPassword1">Confirm Password</label>
-    <input name="cpassword" type="password" class="form-control" id="exampleInputPassword1" required name="up2">
+    <input name="cpassword" type="password" class="form-control" id="exampleInputPassword1" required>
     <div class="invalid-feedback">Password does not match</div>
     <div class="valid-feedback">
       Looks good!
