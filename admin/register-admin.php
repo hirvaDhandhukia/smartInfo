@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title> Register </title>
+    <title> Register Admin </title>
   </head>
   <body>
 
@@ -28,21 +30,27 @@
       <li class="nav-item">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="profile-admin.php"> Profile </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item active">
+      <?php
+        // check if admin is logged in or not
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<li class="nav-item">
+        <a class="nav-link" href="profile-admin.php"> Profile </a>
+      </li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All user info </a>
+      </li>';
+        } else {
+          echo '<li class="nav-item">
         <a class="nav-link" href="register-admin.php"> Register </a>
-      </li>
-      <li class="nav-item">
+      </li>';
+          echo '<li class="nav-item">
         <a class="nav-link" href="login-admin.php"> Log In </a>
-      </li>
+      </li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
@@ -68,19 +76,19 @@
 <div class="container">
 
 <!-- Password Validation -->
-<form class="needs-validation" novalidate  oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
+<form action="register-admin.inc.php" method="post" class="needs-validation" novalidate  oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
 
   <div class="form-row">
     <div class="col-md-6 mb-3">
       <label for="validationCustom01">First name</label>
-      <input type="text" class="form-control" id="validationCustom01"  required>
+      <input name="fname" type="text" class="form-control" id="validationCustom01"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationCustom02">Last name</label>
-      <input type="text" class="form-control" id="validationCustom02"  required>
+      <input name="lname" type="text" class="form-control" id="validationCustom02"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -89,7 +97,7 @@
 
 <div class="col-md-6 mb-3">
       <label for="validationCustom02">Date of birth</label>
-      <input type="date" class="form-control" id="validationCustom02"  required>
+      <input name="dob" type="date" class="form-control" id="validationCustom02"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -97,8 +105,17 @@
   </div>
 
   <div class="form-group">
+    <label for="validationCustom03">Aadhar Number</label>
+    <input name="aadharno" class="form-control" id="validationCustom03"  pattern="\d*" minlength="12" maxlength="12" required>
+    <div class="invalid-feedback"> Enter 12 digit Aadhar Number</div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+
+  <div class="form-group">
     <label for="validationCustom03">Registration Number</label>
-    <input type="" class="form-control" id="validationCustom03"  required>
+    <input name="regno" type="" class="form-control" id="validationCustom03"  required>
     <div class="invalid-feedback"> Enter valid Registration Number</div>
     <div class="valid-feedback">
       Looks good!
@@ -108,7 +125,7 @@
 
 <div class="form-group">
     <label for="validationCustom03">Speciality</label>
-    <input type="" class="form-control" id="validationCustom03"  required>
+    <input name="speciality" type="" class="form-control" id="validationCustom03"  required>
     <div class="invalid-feedback"> Enter your speciality</div>
     <div class="valid-feedback">
       Looks good!
@@ -120,32 +137,33 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <div class="invalid-feedback"> Enter a valid Email Id</div>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
-
-  <div class="form-group">
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" required name="up" pattern="(?=.*\d)(?=.*[a-z]).{6,}" title="Must contain at least one number and lowercase letter, and at least 6 or more characters">
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required name="up" pattern="(?=.*\d)(?=.*[a-z]).{6,}" title="Must contain at least one number and lowercase letter, and at least 6 or more characters">
     <div class="invalid-feedback"> Must contain at least one number and lowercase letter, and at least 6 or more characters</div>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
 
-<div class="form-group">
+<div class="col-md-6 mb-3">
     <label for="exampleInputPassword1">Confirm Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" required name="up2">
+    <input name="cpassword" type="password" class="form-control" id="exampleInputPassword1" required name="up2">
     <div class="invalid-feedback">Password does not match</div>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
+  </div>
   
 
-<button class="btn btn-primary" type="submit">Register</button>
+<button name="submit" class="btn btn-primary" type="submit">Register</button>
 </form>
 
 <script>
