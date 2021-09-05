@@ -12,6 +12,25 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
+<!-- <script>
+function showResult(str) {
+  if (str.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("livesearch").innerHTML=this.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>     -->
+
     <title> Doctor Homepage </title>
   </head>
   <body>
@@ -41,9 +60,6 @@
           echo '<li class="nav-item">
         <a class="nav-link" href="profile-admin.php"> Profile </a>
       </li>';
-          echo '<li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>';
           echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
         } else {
           echo '<li class="nav-item">
@@ -68,24 +84,34 @@
 
 <!-- Photo with Card -->
 
-<br><br>
+<br>
 <div class="container">
-<div class="card">
+
+  <?php
+    if(isset($_SESSION["adminaadh"])) {
+      echo '<p>Welcome, you are signed in with aadhar number: ' . $_SESSION["adminaadh"] . '</p>';
+      echo '<form action="alluserinfo.php" method="post" class="form-inline my-2 my-lg-0">
+      <input name="inputval" class="form-control mr-sm-2" type="search" placeholder="Patient AadharNum" aria-label="Search">
+      <div id="livesearch"></div>
+      <button name="submit" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>';
+    }
+  ?>
+
+<?php
+  if(!isset($_SESSION["adminaadh"])) {
+    echo '<p>Please Login/Register to see patient info</p>';
+    echo '<div class="card">
       <h1 class="card-header bg-light text-dark"> Smart Info Admin</h1>
       <div class="card-body">
-        <?php
-        if(isset($_SESSION['adminaadh'])) {
-          echo '<p>Welcome, you are signed in with aadhar number: ' . $_SESSION["adminaadh"] . '</p>';
-        } else {
-          echo '<p>Please login or register to start your account</p>';
-        }
-      ?>
         <p class="card-text">Our Smart Info is a powerful tool for all doctors who use it. With your fingertips, you can access all of the patients medical history. The database will also store their retina and fingerprint information for extra security. Our unique technology combines the accuracy and security of fingerprint scanning with a patients existing identity documents such as an Aadhar Card to create an unparalleled way to store and share patient information. The result is an automated, paperless system that frees up doctors to spend more time with each patient – hearing their stories, learning about their lives, and connecting on a personal level.</p>
         <p class="card-text"><small class="text-muted"></small></p>
       </div>
       <img src="https://scopeblog.stanford.edu/wp-content/uploads/2020/05/shutterstock_1155379972-1152x578.jpg" alt="">
-    </div>
-    </div>
+    </div>';
+  }
+?>
+  </div>
   </div>
 </div>
 </div>
@@ -94,7 +120,7 @@
   
 
 <!-- FOOTER -->
-<footer>
+<footer style="bottom: 0; position: fixed; width: 100%">
   <div class="p-3 mb-2 bg-dark text-white">  
   <div class="text-monospace">
   <p class="text-center">Created by</p>

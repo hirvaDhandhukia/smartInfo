@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  require_once "includes/config.php"; 
+  require_once "includes/functions.inc.php";
+
+  $adminaadh = $_SESSION["adminaadh"];
+  $inputval = $_POST["inputval"];
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,21 +36,22 @@
       <li class="nav-item">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="profile-admin.php"> Profile </a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="register-admin.php"> Register </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login-admin.php"> Log In </a>
-      </li>
+      <?php
+        // check if the user is loggedin or not
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<li class="nav-item"><a class="nav-link" href="profile-admin.php"> Profile </a></li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All user info </a>
+      </li>';
+          echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
+        } else {
+          echo '<li class="nav-item"><a class="nav-link" href="register-admin.php"> Register </a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="login-admin.php"> Log In </a></li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
@@ -51,14 +61,14 @@
 <br>
 <br>
 <div class="container">
-<form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-    </form>
-<br>
+<!-- <form class="form-inline my-2 my-lg-0">
+      <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button name="submit" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+<!-- <br>
 
 
-<br>
+<br> -->
 <div class="card text-dark bg-light mb-3">
   <div class="card-header bg-dark text-light">
     User Info
@@ -67,19 +77,35 @@
 
 <dl class="row">
   <dt class="col-sm-3">Name</dt>
-  <dd class="col-sm-9">Maitra Khatri</dd>
+  <dd class="col-sm-9">
+    <?php
+      printName($conn, $inputval);
+    ?>
+  </dd>
 
   <dt class="col-sm-3">DOB</dt>
   <dd class="col-sm-9">
-    <span type="date">03/05/2001</span>
+    <span type="date">
+    <?php
+      printDOB($conn, $inputval);
+    ?>
+  </span>
     
   </dd>
 
   <dt class="col-sm-3">Email</dt>
-  <dd class="col-sm-9">maitrakhatri@gmail.com</dd>
+  <dd class="col-sm-9">
+    <?php
+      printEmail($conn, $inputval);
+    ?>
+  </dd>
 
   <dt class="col-sm-3">Aadhar Number</dt>
-  <dd class="col-sm-9">55555 22222</dd>
+  <dd class="col-sm-9">
+    <?php
+      printAadh($conn, $inputval);
+    ?>
+  </dd>
 
     </dl>
   </dd>
