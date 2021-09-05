@@ -67,14 +67,7 @@
   <dt class="col-sm-3">Name</dt>
   <dd class="col-sm-9">
     <?php
-      $sqlfname = "SELECT * FROM users WHERE aadharno='$useraadh';";
-      $resultfname = mysqli_query($conn, $sqlfname);
-      if(mysqli_num_rows($resultfname)>0) {
-          $rowfname = mysqli_fetch_assoc($resultfname);
-          echo $rowfname['fname'] . ' ' . $rowfname['lname'];
-      } else {
-          echo "Row not found";
-      }
+      printUserName($conn, $useraadh);
     ?>
     </dd>
 
@@ -82,15 +75,8 @@
   <dd class="col-sm-9">
     <span type="date">
       <?php
-      $sqldob = "SELECT * FROM users WHERE aadharno='$useraadh';";
-      $resultdob = mysqli_query($conn, $sqldob);
-      if(mysqli_num_rows($resultdob)>0) {
-          $rowdob = mysqli_fetch_assoc($resultdob);
-          echo $rowdob['dob'];
-      } else {
-          echo "Row not found";
-      }
-    ?>
+        printUserDOB($conn, $useraadh);
+      ?>
     </span>
     
   </dd>
@@ -98,19 +84,16 @@
   <dt class="col-sm-3">Email</dt>
   <dd class="col-sm-9">
     <?php
-      $sqlemail = "SELECT * FROM users WHERE aadharno='$useraadh';";
-      $resultemail = mysqli_query($conn, $sqlemail);
-      if(mysqli_num_rows($resultemail)>0) {
-          $rowemail = mysqli_fetch_assoc($resultemail);
-          echo $rowemail['email'];
-      } else {
-          echo "Row not found";
-      }
+      printUserEmail($conn, $useraadh);
     ?>
   </dd>
 
   <dt class="col-sm-3">Aadhar Number</dt>
-  <dd class="col-sm-9"><?php echo $_SESSION["useraadh"]; ?></dd>
+  <dd class="col-sm-9">
+    <?php 
+      echo $_SESSION["useraadh"]; 
+    ?>
+  </dd>
 
     </dl>
   </dd>

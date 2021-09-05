@@ -143,3 +143,102 @@ function sendMsg($conn, $fname, $lname, $email, $message) {
 	header("location: ../contactus.php?error=none");
 	exit();
 }
+
+function printUserName($conn, $useraadh) {
+	$sql = "SELECT * FROM users WHERE aadharno = ?";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: index-admin.php?error=stmtfailedsearch");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "s", $useraadh);
+	mysqli_stmt_execute($stmt);
+
+	$result = mysqli_stmt_get_result($stmt);
+	if($row = mysqli_fetch_assoc($result)) {
+		// return $row;
+		echo $row['fname'] . ' ' . $row['lname'];
+	} else {
+		// $result = false;
+		// return $result;
+		echo "error!";
+	}
+
+	mysqli_stmt_close($stmt);
+
+	// $sql = "SELECT * FROM users WHERE aadharno='$useraadh';";
+ //      $result = mysqli_query($conn, $sql);
+ //      if(mysqli_num_rows($result)>0) {
+ //          $row = mysqli_fetch_assoc($result);
+ //          echo $row['fname'] . ' ' . $row['lname'];
+ //      } else {
+ //          echo "Row not found";
+ //      }
+}
+
+function printUserDOB($conn, $useraadh) {
+	$sql = "SELECT * FROM users WHERE aadharno = ?";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: index-admin.php?error=stmtfailedsearch");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "s", $useraadh);
+	mysqli_stmt_execute($stmt);
+
+	$result = mysqli_stmt_get_result($stmt);
+	if($row = mysqli_fetch_assoc($result)) {
+		// return $row;
+		echo $row['dob'];
+	} else {
+		echo "error try again!";
+	}
+
+	mysqli_stmt_close($stmt);
+}
+
+function printUserEmail($conn, $useraadh) {
+	$sql = "SELECT * FROM users WHERE aadharno = ?";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: index-admin.php?error=stmtfailedsearch");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "s", $useraadh);
+	mysqli_stmt_execute($stmt);
+
+	$result = mysqli_stmt_get_result($stmt);
+	if($row = mysqli_fetch_assoc($result)) {
+		// return $row;
+		echo $row['email'];
+	} else {
+		echo "error try again!";
+	}
+
+	mysqli_stmt_close($stmt);
+}
+
+function printUserAadh($conn, $useraadh) {
+	$sql = "SELECT * FROM users WHERE aadharno = ?";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: index-admin.php?error=stmtfailedsearch");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "s", $useraadh);
+	mysqli_stmt_execute($stmt);
+
+	$result = mysqli_stmt_get_result($stmt);
+	if($row = mysqli_fetch_assoc($result)) {
+		// return $row;
+		echo $row['aadharno'];
+	} else {
+		echo "error try again!";
+	}
+
+	mysqli_stmt_close($stmt);
+}

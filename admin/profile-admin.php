@@ -1,6 +1,8 @@
 <?php
   session_start();
   require_once "includes/config.php";
+  require_once "includes/functions.inc.php";
+
   $adminaadh = $_SESSION['adminaadh'];
 ?>
 
@@ -54,7 +56,7 @@
   </nav>
 
 
-
+<br>
 <div class="container">
   <h1>Profile</h1>
 <br>
@@ -68,14 +70,7 @@
   <dt class="col-sm-3">Name</dt>
   <dd class="col-sm-9">
     <?php
-      $sqlfname = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
-      $resultfname = mysqli_query($conn, $sqlfname);
-      if(mysqli_num_rows($resultfname)>0) {
-          $rowfname = mysqli_fetch_assoc($resultfname);
-          echo $rowfname['fname'] . ' ' . $rowfname['lname'];
-      } else {
-          echo "Row not found";
-      }
+      printAdminName($conn, $adminaadh);
     ?>
   </dd>
 
@@ -83,57 +78,29 @@
   <dd class="col-sm-9">
     <span type="date">
       <?php
-      $sqldob = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
-      $resultdob = mysqli_query($conn, $sqldob);
-      if(mysqli_num_rows($resultdob)>0) {
-          $rowdob = mysqli_fetch_assoc($resultdob);
-          echo $rowdob['dob'];
-      } else {
-          echo "Row not found";
-      }
-    ?>
+        printAdminDOB($conn, $adminaadh);
+      ?>
     </span>   
   </dd>
 
   <dt class="col-sm-3">Email</dt>
   <dd class="col-sm-9">
     <?php
-      $sqlemail = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
-      $resultemail = mysqli_query($conn, $sqlemail);
-      if(mysqli_num_rows($resultemail)>0) {
-          $rowemail = mysqli_fetch_assoc($resultemail);
-          echo $rowemail['email'];
-      } else {
-          echo "Row not found";
-      }
+      printAdminEmail($conn, $adminaadh);
     ?>
   </dd>
 
   <dt class="col-sm-3">Registration Number</dt>
   <dd class="col-sm-9">
     <?php
-      $sqlregno = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
-      $resultregno = mysqli_query($conn, $sqlregno);
-      if(mysqli_num_rows($resultregno)>0) {
-          $rowregno = mysqli_fetch_assoc($resultregno);
-          echo $rowregno['regno'];
-      } else {
-          echo "Row not found";
-      }
+      printAdminRegno($conn, $adminaadh);
     ?>
   </dd>
 
    <dt class="col-sm-3">Speciality</dt>
   <dd class="col-sm-9">
     <?php
-      $sqlspec = "SELECT * FROM admin WHERE aadharno='$adminaadh';";
-      $resultspec = mysqli_query($conn, $sqlspec);
-      if(mysqli_num_rows($resultspec)>0) {
-          $rowspec = mysqli_fetch_assoc($resultspec);
-          echo $rowspec['speciality'];
-      } else {
-          echo "Row not found";
-      }
+      printAdminSpec($conn, $adminaadh);
     ?>
   </dd>
 
@@ -148,7 +115,7 @@
 
 
 <!-- FOOTER -->
-<footer>
+<footer style="bottom: 0; position: fixed; width: 100%">
   <div class="p-3 mb-2 bg-dark text-white">  
   <div class="text-monospace">
   <p class="text-center">Created by</p>

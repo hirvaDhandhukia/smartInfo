@@ -1,10 +1,10 @@
 <?php 
   session_start();
   require_once "includes/config.php"; 
-  require_once "includes/functions.inc.php";
+  require_once "../users/includes/functions.inc.php";
 
   $adminaadh = $_SESSION["adminaadh"];
-  $inputval = $_POST["inputval"];
+  $useraadh = $_POST["useraadh"];
 ?>
 
 <!doctype html>
@@ -79,7 +79,7 @@
   <dt class="col-sm-3">Name</dt>
   <dd class="col-sm-9">
     <?php
-      printName($conn, $inputval);
+      printUserName($conn, $useraadh);
     ?>
   </dd>
 
@@ -87,7 +87,7 @@
   <dd class="col-sm-9">
     <span type="date">
     <?php
-      printDOB($conn, $inputval);
+      printUserDOB($conn, $useraadh);
     ?>
   </span>
     
@@ -96,14 +96,14 @@
   <dt class="col-sm-3">Email</dt>
   <dd class="col-sm-9">
     <?php
-      printEmail($conn, $inputval);
+      printUserEmail($conn, $useraadh);
     ?>
   </dd>
 
   <dt class="col-sm-3">Aadhar Number</dt>
   <dd class="col-sm-9">
     <?php
-      printAadh($conn, $inputval);
+      printUserAadh($conn, $useraadh);
     ?>
   </dd>
 

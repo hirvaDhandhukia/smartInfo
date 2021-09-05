@@ -72,7 +72,7 @@
     if(isset($_SESSION["adminaadh"])) {
       echo '<p>Welcome, you are signed in with aadhar number: ' . $_SESSION["adminaadh"] . '</p>';
       echo '<form action="alluserinfo.php" method="post" class="form-inline my-2 my-lg-0">
-      <input name="inputval" class="form-control mr-sm-2" type="search" placeholder="Patient AadharNum" aria-label="Search">
+      <input name="useraadh" class="form-control mr-sm-2" type="search" placeholder="Patient AadharNum" aria-label="Search">
       <div id="livesearch"></div>
       <button name="submit" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
     </form>';
