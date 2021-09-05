@@ -118,3 +118,28 @@ function loginAdmin($conn, $email, $password) {
 	}
 }
 
+function emptyInputContactus($fname, $lname, $email, $message) {
+	$result;
+	if(empty($fname) || empty($lname) || empty($email) || empty($message)) {
+		$result = true;
+	} else {
+		$result = false;
+	}
+	return $result;
+}
+
+function sendMsg($conn, $fname, $lname, $email, $message) {
+	$sql = "INSERT INTO contactus (fname, lname, email, message) VALUES (?, ?, ?, ?);";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: ../contactus.php?error=stmtfailedsendmsg");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $email, $message);
+	mysqli_stmt_execute($stmt);
+	mysqli_stmt_close($stmt);
+
+	header("location: ../contactus.php?error=none");
+	exit();
+}

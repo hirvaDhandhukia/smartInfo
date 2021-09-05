@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,27 +29,44 @@
       <li class="nav-item active">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="profile-admin.php"> Profile </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="register-admin.php"> Register </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login-admin.php"> Log In </a>
-      </li>
+      <?php
+        // check if the user is loggedin or not
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<li class="nav-item"><a class="nav-link" href="profile-admin.php"> Profile </a></li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All user info </a>
+      </li>';
+          echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
+        } else {
+          echo '<li class="nav-item"><a class="nav-link" href="register-admin.php"> Register </a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="login-admin.php"> Log In </a></li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
 
 
-    
+    <?php
+  if(isset($_GET['error'])) {
+    if($_GET['error'] == 'emptyinput') {
+      echo '<p>Fill in all fields</p>';
+    }
+    else if ($_GET['error'] == 'stmtfailedsendmsg') {
+      echo '<p>Failed to send msg, there was an error with system. Try again.</p>';
+    }
+    else if ($_GET['error'] == 'invalidemail') {
+      echo '<p>Fill in correct email</p>';
+    }
+    else if ($_GET['error'] == 'none') {
+      echo '<p>Message sent successfully! We will contact you shortly.</p>';
+    }
+  }
+?>
+
 
 
 
@@ -71,33 +90,33 @@
   </div>
 
  <div class="card-body">
-<form>
+<form action="includes/contactus.inc.php" method="post">
   
   <div class="form-row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="First name" required>
+      <input name="fname" type="text" class="form-control" placeholder="First name" required>
       <div class="invalid-feedback"> Please enter your name</div>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Last name" required>
+      <input name="lname" type="text" class="form-control" placeholder="Last name" required>
       <div class="invalid-feedback"> Please enter your name</div>
     </div>
   </div>
 
   <div class="form-group">
     <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
   </div>
 
   <div class="mb-3">
     <label for="validationTextarea">Message for us</label>
-    <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+    <textarea name="message" class="form-control" id="validationTextarea" placeholder="Required example textarea" required></textarea>
     <div class="invalid-feedback">
       Please enter a message here
     </div>
   </div>
 </div>
- <button type="submit" class="btn btn-outline-primary">Submit</button>
+ <button name="submit" type="submit" class="btn btn-outline-primary">Submit</button>
 
 </form>
 </div>
