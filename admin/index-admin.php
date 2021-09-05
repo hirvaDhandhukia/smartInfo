@@ -1,7 +1,5 @@
 <?php
-// the 'users' folder has all the files for patients
-// index.php file is patient-homepage
-// start ur html after the closing php tags
+  session_start();
 ?>
 
 <!doctype html>
@@ -34,21 +32,27 @@
       <li class="nav-item">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="profile.php"> Profile </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item">
+      <?php
+        // check if admin is logged in or not
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<li class="nav-item">
+        <a class="nav-link" href="profile-admin.php"> Profile </a>
+      </li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All user info </a>
+      </li>';
+        } else {
+          echo '<li class="nav-item">
         <a class="nav-link" href="register-admin.php"> Register </a>
-      </li>
-      <li class="nav-item">
+      </li>';
+          echo '<li class="nav-item">
         <a class="nav-link" href="login-admin.php"> Log In </a>
-      </li>
+      </li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
@@ -66,8 +70,15 @@
 <br><br>
 <div class="container">
 <div class="card">
-      <h1 class="card-header bg-light text-dark"> Smart Info</h1>
+      <h1 class="card-header bg-light text-dark"> Smart Info Admin</h1>
       <div class="card-body">
+        <?php
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<p>Welcome, you are signed in with aadhar number: ' . $_SESSION["adminaadh"] . '</p>';
+        } else {
+          echo '<p>Please login or register to start your account</p>';
+        }
+      ?>
         <p class="card-text">Our Smart Info is a powerful tool for all doctors who use it. With your fingertips, you can access all of the patients medical history. The database will also store their retina and fingerprint information for extra security. Our unique technology combines the accuracy and security of fingerprint scanning with a patients existing identity documents such as an Aadhar Card to create an unparalleled way to store and share patient information. The result is an automated, paperless system that frees up doctors to spend more time with each patient – hearing their stories, learning about their lives, and connecting on a personal level.</p>
         <p class="card-text"><small class="text-muted"></small></p>
       </div>
