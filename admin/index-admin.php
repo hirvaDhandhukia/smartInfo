@@ -11,7 +11,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title> Doctor Homepage </title>
   </head>
   <body>
@@ -71,13 +71,22 @@
   <?php
     if(isset($_SESSION["adminaadh"])) {
       echo '<p>Welcome, you are signed in with aadhar number: ' . $_SESSION["adminaadh"] . '</p>';
-      echo '<form action="alluserinfo.php" method="post" class="form-inline my-2 my-lg-0">
-      <input name="useraadh" class="form-control mr-sm-2" type="search" placeholder="Patient AadharNum" aria-label="Search">
-      <div id="livesearch"></div>
-      <button name="submit" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-    </form>';
+      echo '
+      <form action="alluserinfo.php" method="post" class="form-inline my-2 my-lg-0">
+          <input name="useraadh" class="form-control mr-sm-2" type="search" placeholder="Patient AadharNum" aria-label="Search">
+          <div id="livesearch"></div>
+          <button name="submit" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <br>
+        <p> Scan patients fingerprint </p>
+        <i class="material-icons" style="font-size:48px;color:red">fingerprint</i>'
+        ;
+   
     }
   ?>
+
+
+
 
 <?php
   if(!isset($_SESSION["adminaadh"])) {
@@ -101,7 +110,11 @@
   
 
 <!-- FOOTER -->
-<footer style="bottom: 0; position: fixed; width: 100%">
+
+<?php
+    if(isset($_SESSION["adminaadh"])) {
+
+echo '<footer style="bottom: 0; position: fixed; width: 100%">
   <div class="p-3 mb-2 bg-dark text-white">  
   <div class="text-monospace">
   <p class="text-center">Created by</p>
@@ -122,7 +135,38 @@
   </ul>
   </div>
   </div>
-  </footer>
+  </footer>';
+  }
+
+  else {
+
+    echo '<footer style="bottom: 0; position: ; width: 100%">
+    <div class="p-3 mb-2 bg-dark text-white">  
+    <div class="text-monospace">
+    <p class="text-center">Created by</p>
+  
+    <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/hirvaDhandhukia">Hirva</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/maitrakhatri">Maitra</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/siddharth1332">Siddharth</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/luciferwrath21">Swapnil</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </footer>';
+
+
+  }
+  ?>
+
 
 
 
