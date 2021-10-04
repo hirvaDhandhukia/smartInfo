@@ -78,7 +78,7 @@
           <button name="submit" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
         <br>
-        <p> Scan patients fingerprint </p>
+        <p> Scan patients fingerprint: </p>
         <i class="material-icons" style="font-size:48px;color:red">fingerprint</i>'
         ;
    
