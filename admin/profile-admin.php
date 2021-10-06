@@ -41,9 +41,6 @@
       <?php
         // check if the user is loggedin or not
         if(isset($_SESSION['adminaadh'])) {
-          echo '<li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>';
         echo '<li class="nav-item"><a class="nav-link" href="profile-admin.php"> Profile </a></li>';
           echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
         } else {
