@@ -1,4 +1,11 @@
 <?php 
+
+  if(!isset($_POST['submit-aadh'])) {
+    header("location: login-admin.php");
+    exit;
+  }
+
+
   session_start();
   require_once "includes/config.php"; 
   require_once "../users/includes/functions.inc.php";
