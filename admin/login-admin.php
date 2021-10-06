@@ -171,7 +171,7 @@
 
 
 <!-- FOOTER -->
-<footer>
+<footer style="bottom: 0; position: ; width: 100%">
   <div class="p-3 mb-2 bg-dark text-white">  
   <div class="text-monospace">
   <p class="text-center">Created by</p>
