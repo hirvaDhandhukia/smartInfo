@@ -1,17 +1,5 @@
-<?php 
-
-  if(!isset($_POST['submit-aadh'])) {
-    header("location: login-admin.php");
-    exit;
-  }
-
-
+<?php
   session_start();
-  require_once "includes/config.php"; 
-  require_once "../users/includes/functions.inc.php";
-
-  $adminaadh = $_SESSION["adminaadh"];
-  $useraadh = $_POST["useraadh"];
 ?>
 
 <!doctype html>
@@ -23,11 +11,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-    <title> All User Info</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title> Doctor Homepage </title>
   </head>
   <body>
-    
+
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -47,120 +35,86 @@
     
     <ul class="nav navbar-nav ml-auto">
       <?php
-        // check if the user is loggedin or not
+        // check if admin is logged in or not
         if(isset($_SESSION['adminaadh'])) {
-          echo '<li class="nav-item"><a class="nav-link" href="profile-admin.php"> Profile </a></li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="profile-admin.php"> Profile </a>
+      </li>';
           echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
         } else {
-          echo '<li class="nav-item"><a class="nav-link" href="register-admin.php"> Register </a></li>';
-          echo '<li class="nav-item"><a class="nav-link" href="login-admin.php"> Log In </a></li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="register-admin.php"> Register </a>
+      </li>';
+          echo '<li class="nav-item">
+        <a class="nav-link" href="login-admin.php"> Log In </a>
+      </li>';
         }
       ?>
     </ul>
   </div>
   </nav>
 
+<br><br>
+  <div class="container">
+    <div class="card text-dark bg-light mb-3" style="max-width: 75rem">
+    <div class="card-header text-light bg-dark">Fill your details</div>
+    <div class="card-body">
 
+      <div class="container">
 
-<br>
-<br>
-<div class="container">
-<!-- <form class="form-inline my-2 my-lg-0">
-      <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button name="submit" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
-<!-- <br>
+      <form>
+        <div class="form-group">
 
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">User Aadhar Number Authentication: </label>
+          <input name="useraadh" class="form-control mr-sm-2" type="text" placeholder="Patient Aadhar Number" aria-label="Search" required>
+        </div>
 
-<br> -->
-<div class="card text-dark bg-light mb-3">
-  <div class="card-header bg-dark text-light">
-    User Info
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Blood Group</label>
+          <select class="form-control" id="exampleFormControlSelect1" required>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Allergies/Genetic Disorder</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Medical History</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Submit">
+      </form>
   </div>
-  <div class="card-body">
-
-<dl class="row">
-  <dt class="col-sm-3">Name</dt>
-  <dd class="col-sm-9">
-    <?php
-      printUserName($conn, $useraadh);
-    ?>
-  </dd>
-
-  <dt class="col-sm-3">DOB</dt>
-  <dd class="col-sm-9">
-    <span type="date">
-    <?php
-      printUserDOB($conn, $useraadh);
-    ?>
-  </span>
-    
-  </dd>
-
-  <dt class="col-sm-3">Email</dt>
-  <dd class="col-sm-9">
-    <?php
-      printUserEmail($conn, $useraadh);
-    ?>
-  </dd>
-
-  <dt class="col-sm-3">Aadhar Number</dt>
-  <dd class="col-sm-9">
-    <?php
-      printUserAadh($conn, $useraadh);
-    ?>
-  </dd>
-
-    </dl>
-  </dd>
-</dl>
 </div>
-</div>
+      </div>
+      </div>
+
+
+      </div>
+
 
 
 <br>
-<div class="card text-dark bg-light mb-3">
-  <div class="card-header bg-dark text-light">
-    Medical Report
-  </div>
-  <div class="card-body">
-
-<dl class="row">
-  <dt class="col-sm-3">Blood Group</dt>
-  <dd class="col-sm-9">O+</dd>
-
-  <dt class="col-sm-3">Allergies/Genetic Disorder</dt>
-  <dd class="col-sm-9">
-    <p>Penut Butter</p>
-    <p>Dust</p>
-    <p>Thelesemia Minor</p>
-
-  </dd>
-
-  <dt class="col-sm-3">Medical History</dt>
-  <dd class="col-sm-9">Lactose Intolerant</dd>
-
-  
-
-    </dl>
-  </dd>
-</dl>
-</div>
-</div>
-
-<a class="btn btn-primary" href="editmedicalreport.php" role="button">Edit Medical Report</a>
-
-</div>
-
-
-
-  </div>
-<br>
-
 
 
 <!-- FOOTER -->
-<footer>
+
+<?php
+    if(isset($_SESSION["adminaadh"])) {
+
+echo '<footer style="bottom: 0; position: ; width: 100%">
   <div class="p-3 mb-2 bg-dark text-white">  
   <div class="text-monospace">
   <p class="text-center">Created by</p>
@@ -181,15 +135,37 @@
   </ul>
   </div>
   </div>
-  </footer> 
+  </footer>';
+  }
+
+  else {
+
+    echo '<footer style="bottom: 0; position: ; width: 100%">
+    <div class="p-3 mb-2 bg-dark text-white">  
+    <div class="text-monospace">
+    <p class="text-center">Created by</p>
+  
+    <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/hirvaDhandhukia">Hirva</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/maitrakhatri">Maitra</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/siddharth1332">Siddharth</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/luciferwrath21">Swapnil</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </footer>';
 
 
-
-
-
-
-
-
+  }
+  ?>
 
 
 
@@ -198,7 +174,7 @@
 
     
 
-    <!-- Optional JavaScript; choose one of the two! -->
+<!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
