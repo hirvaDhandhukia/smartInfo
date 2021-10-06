@@ -1,7 +1,7 @@
 <?php 
 
   if(!isset($_POST['submit-aadh'])) {
-    header("location: login-admin.php");
+    header("location: index-admin.php");
     exit;
   }
 
