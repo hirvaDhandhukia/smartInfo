@@ -39,6 +39,9 @@
         // check if admin is logged in or not
         if(isset($_SESSION['adminaadh'])) {
           echo '<li class="nav-item">
+        <a class="nav-link" href="alluserinfo.php"> All User Info </a>
+      </li>';
+          echo '<li class="nav-item">
         <a class="nav-link" href="profile-admin.php"> Profile </a>
       </li>';
           echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
@@ -84,6 +87,7 @@
    
     }
   ?>
+
 
 
 

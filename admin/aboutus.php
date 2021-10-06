@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,7 +17,6 @@
   <body>
     
 <!-- NAVBAR -->
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="index-admin.php">Smart Info</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,21 +30,25 @@
       <li class="nav-item">
         <a class="nav-link" href="contactus.php"> Contact Us </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="profile-admin.php"> Profile </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="alluserinfo.php"> All user info </a>
-      </li>
     </ul>
     
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item">
+      <?php
+        // check if admin is logged in or not
+        if(isset($_SESSION['adminaadh'])) {
+          echo '<li class="nav-item">
+        <a class="nav-link" href="profile-admin.php"> Profile </a>
+      </li>';
+          echo '<li class="nav-item"><a class="nav-link" href="logout-admin.php"> Log Out </a></li>';
+        } else {
+          echo '<li class="nav-item">
         <a class="nav-link" href="register-admin.php"> Register </a>
-      </li>
-      <li class="nav-item">
+      </li>';
+          echo '<li class="nav-item">
         <a class="nav-link" href="login-admin.php"> Log In </a>
-      </li>
+      </li>';
+        }
+      ?>
     </ul>
   </div>
   </nav>
