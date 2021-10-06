@@ -1,5 +1,9 @@
 <?php
   session_start();
+
+  require_once "includes/config.php"; 
+  require_once "../users/includes/functions.inc.php";
+
 ?>
 
 <!doctype html>
@@ -62,48 +66,72 @@
 
       <div class="container">
 
-      <form>
-        <div class="form-group">
+<form action="" method="post">
+  <div class="form-group">
 
-        <div class="form-group">
-        <label for="exampleFormControlSelect1">User Aadhar Number Authentication: </label>
-          <input name="useraadh" class="form-control mr-sm-2" type="text" placeholder="Patient Aadhar Number" aria-label="Search" required>
-        </div>
+<?php
+// if(isset($_GET['useraadh'])) {
+//   $useraadh = $_GET['useraadh'];
+//     echo '<div class="form-group">
+//           <label>User Aadhar Number Authentication: </label>
+//           <input name="useraadh" class="form-control mr-sm-2" type="text" placeholder="Patient Aadhar Number" aria-label="Search" value="'.$useraadh.'" required>
+//         </div>';
+// }
 
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Blood Group</label>
-          <select class="form-control" id="exampleFormControlSelect1" required>
-            <option>A+</option>
-            <option>A-</option>
-            <option>B+</option>
-            <option>B-</option>
-            <option>AB+</option>
-            <option>AB-</option>
-            <option>O+</option>
-            <option>O-</option>
-          </select>
-        </div>
+if(isset($_GET['bloodgroup'])) {
+    $bloodgroup = $_GET['bloodgroup'];
+    echo '<div class="form-group">
+          <label for="exampleFormControlTextarea1">Blood Group</label>
+          <input name="bloodgroup" class="form-control" id="exampleFormControlTextarea1" required value="'.$bloodgroup.'">
+        </div>';
+}
 
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Allergies/Genetic Disorder</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-        </div>
+if(isset($_GET['allergies'])) {
+    $allergies = $_GET['allergies'];
+    echo '<div class="form-group">
+          <label for="exampleFormControlTextarea2">Allergies/Genetic Disorder</label>
+          <input name="allergies" class="form-control" id="exampleFormControlTextarea2" required value="'.$allergies.'">
+        </div>';
+}
 
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Medical History</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-        </div>
+if(isset($_GET['med_hist'])) {
+    $med_hist = $_GET['med_hist'];
+    echo '<div class="form-group">
+          <label for="exampleFormControlTextarea3">Medical History</label>
+          <input name="med_hist" class="form-control" id="exampleFormControlTextarea3" required value="'.$med_hist.'">
+        </div>';
+}
 
-        <input class="btn btn-primary" type="submit" value="Submit">
+  ?>
+      <button class="btn btn-primary" type="submit" name="submitmedhist">Submit</button>
       </form>
+
   </div>
 </div>
-      </div>
-      </div>
+</div>
+</div>
+</div>
 
 
-      </div>
 
+<?php
+if(isset($_POST['submitmedhist'])) {
+    $useraadh = $GET['useraadh'];
+    $bloodgroup = $_POST['bloodgroup'];
+    $allergies = $_POST['allergies'];
+    $med_hist = $_POST['med_hist'];
+
+    $sql = "UPDATE med_history SET bloodgroup='$bloodgroup',allergies='$allergies',med_hist='$med_hist' WHERE aadharno='$useraadh';";
+    $request = mysqli_query($conn, $sql);
+    if($request) {
+        echo "Record Updated!";
+        header("location: index-admin.php?edit=success");
+    } else {
+        echo "Failed. Try again";
+    }
+
+}
+?>
 
 
 <br>

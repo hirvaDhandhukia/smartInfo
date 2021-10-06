@@ -12,6 +12,11 @@
 
   $adminaadh = $_SESSION["adminaadh"];
   $useraadh = $_POST["useraadh"];
+
+$bloodgroup = printUserBloodGroup($conn, $useraadh);
+$allergies = printUserAllergies($conn, $useraadh);
+$med_hist = printUserMedHistory($conn, $useraadh);
+
 ?>
 
 <!doctype html>
@@ -127,18 +132,26 @@
 
 <dl class="row">
   <dt class="col-sm-3">Blood Group</dt>
-  <dd class="col-sm-9">O+</dd>
+  <dd name="bloodgroup" class="col-sm-9">
+    <?php
+      echo $bloodgroup;
+    ?>
+  </dd>
 
   <dt class="col-sm-3">Allergies/Genetic Disorder</dt>
-  <dd class="col-sm-9">
-    <p>Penut Butter</p>
-    <p>Dust</p>
-    <p>Thelesemia Minor</p>
+  <dd name="allergies" class="col-sm-9">
+    <?php
+      echo $allergies;
+    ?>
 
   </dd>
 
   <dt class="col-sm-3">Medical History</dt>
-  <dd class="col-sm-9">Lactose Intolerant</dd>
+  <dd class="col-sm-9">
+    <?php
+      echo $med_hist;
+    ?>
+  </dd>
 
   
 
@@ -148,12 +161,13 @@
 </div>
 </div>
 
-<a class="btn btn-primary" href="editmedicalreport.php" role="button">Edit Medical Report</a>
+<?php
+  echo "<a class='btn btn-primary' href='editmedicalreport.php?useraadh=$useraadh&bloodgroup=$bloodgroup&allergies=$allergies&med_hist=$med_hist' role='button'>Edit Medical Report</a>";
+?>
+
+<!-- <a class="btn btn-primary" href="editmedicalreport.php" role="button">Edit Medical Report</a> -->
 
 </div>
-
-
-
   </div>
 <br>
 
