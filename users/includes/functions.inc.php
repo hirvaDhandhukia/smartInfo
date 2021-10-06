@@ -308,3 +308,25 @@ function printUserMedHistory($conn, $useraadh) {
 
 	mysqli_stmt_close($stmt);
 }
+
+function printUserAge($conn, $useraadh) {
+	$sql = "SELECT * FROM med_history WHERE aadharno = ?";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: alluserinfo.php?error=stmtfailedsearch");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "s", $useraadh);
+	mysqli_stmt_execute($stmt);
+
+	$result = mysqli_stmt_get_result($stmt);
+	if($row = mysqli_fetch_assoc($result)) {
+		return $row['age'];
+		// echo $row['bloodgroup'];
+	} else {
+		echo "error try again!";
+	}
+
+	mysqli_stmt_close($stmt);
+}

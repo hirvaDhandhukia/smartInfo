@@ -16,6 +16,7 @@
 $bloodgroup = printUserBloodGroup($conn, $useraadh);
 $allergies = printUserAllergies($conn, $useraadh);
 $med_hist = printUserMedHistory($conn, $useraadh);
+$age = printUserAge($conn, $useraadh);
 
 ?>
 
@@ -131,6 +132,13 @@ $med_hist = printUserMedHistory($conn, $useraadh);
   <div class="card-body">
 
 <dl class="row">
+  <dt class="col-sm-3">Age</dt>
+  <dd name="age" class="col-sm-9">
+    <?php
+      echo $age;
+    ?>
+  </dd>
+
   <dt class="col-sm-3">Blood Group</dt>
   <dd name="bloodgroup" class="col-sm-9">
     <?php
@@ -162,7 +170,7 @@ $med_hist = printUserMedHistory($conn, $useraadh);
 </div>
 
 <?php
-  echo "<a class='btn btn-primary' href='editmedicalreport.php?useraadh=$useraadh&bloodgroup=$bloodgroup&allergies=$allergies&med_hist=$med_hist' role='button'>Edit Medical Report</a>";
+  echo "<a class='btn btn-primary' href='editmedicalreport.php?useraadh=$useraadh&age=$age&bloodgroup=$bloodgroup&allergies=$allergies&med_hist=$med_hist' role='button'>Edit Medical Report</a>";
 ?>
 
 <!-- <a class="btn btn-primary" href="editmedicalreport.php" role="button">Edit Medical Report</a> -->

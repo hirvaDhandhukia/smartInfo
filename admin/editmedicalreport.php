@@ -70,19 +70,27 @@
   <div class="form-group">
 
 <?php
-// if(isset($_GET['useraadh'])) {
-//   $useraadh = $_GET['useraadh'];
-//     echo '<div class="form-group">
-//           <label>User Aadhar Number Authentication: </label>
-//           <input name="useraadh" class="form-control mr-sm-2" type="text" placeholder="Patient Aadhar Number" aria-label="Search" value="'.$useraadh.'" required>
-//         </div>';
-// }
+if(isset($_GET['useraadh'])) {
+  $useraadh = $_GET['useraadh'];
+    // echo '<div class="form-group">
+    //       <label>User Aadhar Number Authentication: </label>
+    //       <input name="useraadh" class="form-control mr-sm-2" type="text" placeholder="Patient Aadhar Number" aria-label="Search" value="'.$useraadh.'" required>
+    //     </div>';
+}
+
+if(isset($_GET['age'])) {
+    $age = $_GET['age'];
+    echo '<div class="form-group">
+          <label for="exampleFormControlTextarea0">Age</label>
+          <input name="age" type="text" class="form-control" id="exampleFormControlTextarea0" required value="'.$age.'">
+        </div>';
+}
 
 if(isset($_GET['bloodgroup'])) {
     $bloodgroup = $_GET['bloodgroup'];
     echo '<div class="form-group">
           <label for="exampleFormControlTextarea1">Blood Group</label>
-          <input name="bloodgroup" class="form-control" id="exampleFormControlTextarea1" required value="'.$bloodgroup.'">
+          <input name="bloodgroup" type="text" class="form-control" id="exampleFormControlTextarea1" required value="'.$bloodgroup.'">
         </div>';
 }
 
@@ -103,7 +111,7 @@ if(isset($_GET['med_hist'])) {
 }
 
   ?>
-      <button class="btn btn-primary" type="submit" name="submitmedhist">Submit</button>
+      <button class="btn btn-primary" type="submit" name="submit-medhist">Submit</button>
       </form>
 
   </div>
@@ -115,17 +123,22 @@ if(isset($_GET['med_hist'])) {
 
 
 <?php
-if(isset($_POST['submitmedhist'])) {
-    $useraadh = $GET['useraadh'];
+if(isset($_POST['submit-medhist'])) {
+    // $useraadh = $GET['useraadh'];
+  $age = $_POST['age'];
     $bloodgroup = $_POST['bloodgroup'];
     $allergies = $_POST['allergies'];
     $med_hist = $_POST['med_hist'];
 
-    $sql = "UPDATE med_history SET bloodgroup='$bloodgroup',allergies='$allergies',med_hist='$med_hist' WHERE aadharno='$useraadh';";
+    $sql = "UPDATE med_history SET age='$age',
+                                  bloodgroup='$bloodgroup',
+                                  allergies='$allergies',
+                                  med_hist='$med_hist' 
+                              WHERE aadharno='$useraadh';";
     $request = mysqli_query($conn, $sql);
     if($request) {
+        // header("location: index-admin.php?edit=success");
         echo "Record Updated!";
-        header("location: index-admin.php?edit=success");
     } else {
         echo "Failed. Try again";
     }
