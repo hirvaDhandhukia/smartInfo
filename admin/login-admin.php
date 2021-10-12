@@ -45,6 +45,15 @@
   </div>
   </nav>
 
+  <?php
+  if(isset($_GET['error'])) {
+    if($_GET['error'] == 'wronglogin') {
+      echo '<p>You have entered wrong info for login. 
+      Please try again.</p>';
+    }
+  }
+?>
+
   <br><div class="container">
     <h1> Log In </h1>
   </div><br>

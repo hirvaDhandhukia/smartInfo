@@ -137,8 +137,8 @@ if(isset($_POST['submit-medhist'])) {
                               WHERE aadharno='$useraadh';";
     $request = mysqli_query($conn, $sql);
     if($request) {
-        // header("location: index-admin.php?edit=success");
-        echo "Record Updated!";
+        header("location: index-admin.php?edit=success");
+        // echo "Record Updated!";
     } else {
         echo "Failed. Try again";
     }

@@ -56,7 +56,13 @@
   </nav>
 
 
-
+  <?php
+  if(isset($_GET['edit'])) {
+    if($_GET['edit'] == 'success') {
+      echo '<p>Edited User Medical History Successfully.</p>';
+    }
+  }
+?>
 
 
 
