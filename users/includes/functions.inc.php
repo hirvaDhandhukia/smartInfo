@@ -371,18 +371,18 @@ function printUserAge($conn, $useraadh) {
 // }
 
 
-function addUserMedHist($conn, $aadharno) {
-	$sql = "INSERT INTO med_history (aadharno, age, bloodgroup, allergies, med_history) VALUES (?, ?, ?, ?, ?);";
-	$stmt = mysqli_stmt_init($conn);
-	if(!mysqli_stmt_prepare($stmt, $sql)) {
-		header("location: ../register.php?error=stmtfailedcreateuser");
-		exit();
-	}
+// function addUserMedHist($conn, $aadharno) {
+// 	$sql = "INSERT INTO med_history (aadharno, age, bloodgroup, allergies, med_history) VALUES (?, ?, ?, ?, ?);";
+// 	$stmt = mysqli_stmt_init($conn);
+// 	if(!mysqli_stmt_prepare($stmt, $sql)) {
+// 		header("location: ../register.php?error=stmtfailedcreateuser");
+// 		exit();
+// 	}
 
-	mysqli_stmt_bind_param($stmt, "sssss", $aadharno, $age, $bloodgroup, $allergies, $med_history);
-	mysqli_stmt_execute($stmt);
-	mysqli_stmt_close($stmt);
+// 	mysqli_stmt_bind_param($stmt, "sssss", $aadharno, $age, $bloodgroup, $allergies, $med_history);
+// 	mysqli_stmt_execute($stmt);
+// 	mysqli_stmt_close($stmt);
 
-	header("location: ../register.php?error=none");
-	exit();
-}
+// 	header("location: ../register.php?error=none");
+// 	exit();
+// }
