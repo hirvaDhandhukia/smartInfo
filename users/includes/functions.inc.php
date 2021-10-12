@@ -65,6 +65,29 @@ function emailExists($conn, $email, $aadharno) {
 	mysqli_stmt_close($stmt);
 }
 
+function aadhDNE($conn, $aadharno) {
+	$sql = "SELECT * FROM users WHERE aadharno = ?;";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: ../../admin/index-admin.php?error=stmtfailed");
+		exit();
+	}
+	mysqli_stmt_bind_param($stmt, "s", $aadharno);
+	mysqli_stmt_execute($stmt);
+
+	$resultData = mysqli_stmt_get_result($stmt);
+	if($row = mysqli_fetch_assoc($resultData)) {
+		return $row;
+		$result = false;
+		echo 'yes aadh exist';
+	} else {
+		return $result;
+		echo 'NO aadh dne';
+	}
+
+	mysqli_stmt_close($stmt);
+}
+
 function createUser($conn, $fname, $lname, $email, $aadharno, $dob, $password) {
 	$sql = "INSERT INTO users (fname, lname, email, aadharno, dob, password) VALUES (?, ?, ?, ?, ?, ?);";
 	$stmt = mysqli_stmt_init($conn);

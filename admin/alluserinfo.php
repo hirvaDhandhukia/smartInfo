@@ -1,10 +1,10 @@
 <?php 
 
+// if admin has clicked buttion for submit-aadhrcard, only then this page will be accessible.
   if(!isset($_POST['submit-aadh'])) {
     header("location: index-admin.php");
     exit;
   }
-
 
   session_start();
   require_once "includes/config.php"; 
@@ -13,6 +13,19 @@
   $adminaadh = $_SESSION["adminaadh"];
   $useraadh = $_POST["useraadh"];
 
+  if(aadhDNE($conn, $_POST["useraadh"])) {
+    // this is called if aadh dne
+		// header("location: index-admin.php?aadh=dne");
+    // exit;
+  } 
+  else {
+    // this is called if aadh exists
+		// echo 'dne err';
+    header("location: index-admin.php?aadh=dne");
+    exit;
+  }
+
+  
 $bloodgroup = printUserBloodGroup($conn, $useraadh);
 $allergies = printUserAllergies($conn, $useraadh);
 $med_hist = printUserMedHistory($conn, $useraadh);

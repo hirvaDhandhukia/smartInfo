@@ -62,6 +62,13 @@
       echo '<p>Edited User Medical History Successfully.</p>';
     }
   }
+
+  if(isset($_GET['aadh'])) {
+    if($_GET['aadh'] == 'dne') {
+      echo '<p>Aadhar number you entered does not exists in USER database.</p>';
+      echo '<p>Try again.</p>';
+    }
+  }
 ?>
 
 
