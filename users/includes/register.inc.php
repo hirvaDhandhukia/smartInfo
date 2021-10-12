@@ -39,7 +39,7 @@ if(isset($_POST["submit"])) {
 	// if we are here now then, user made no mistakes
 	// so we can signup the user into our website
 	createUser($conn, $fname, $lname, $email, $aadharno, $dob, $password);
-	addUserMedHist($conn, $aadharno);
+	// addUserMedHist($conn, $aadharno);
 
 } else {
 	header("location: ../register.php");
