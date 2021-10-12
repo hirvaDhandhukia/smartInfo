@@ -4,6 +4,11 @@
   require_once "includes/functions.inc.php";
 
   $useraadh = $_SESSION['useraadh'];
+
+  $bloodgroup = printUserBloodGroup($conn, $useraadh);
+  $allergies = printUserAllergies($conn, $useraadh);
+  $med_hist = printUserMedHistory($conn, $useraadh);
+  $age = printUserAge($conn, $useraadh);
 ?>
 
 <!doctype html>
@@ -112,20 +117,35 @@
   </div>
   <div class="card-body">
 
-<dl class="row">
+  <dl class="row">
+  <dt class="col-sm-3">Age</dt>
+  <dd name="age" class="col-sm-9">
+    <?php
+      echo $age;
+    ?>
+  </dd>
+
   <dt class="col-sm-3">Blood Group</dt>
-  <dd class="col-sm-9">O+</dd>
+  <dd name="bloodgroup" class="col-sm-9">
+    <?php
+      echo $bloodgroup;
+    ?>
+  </dd>
 
   <dt class="col-sm-3">Allergies/Genetic Disorder</dt>
-  <dd class="col-sm-9">
-    <p>Penut Butter</p>
-    <p>Dust</p>
-    <p>Thelesemia Minor</p>
+  <dd name="allergies" class="col-sm-9">
+    <?php
+      echo $allergies;
+    ?>
 
   </dd>
 
   <dt class="col-sm-3">Medical History</dt>
-  <dd class="col-sm-9">Lactose Intolerant</dd>
+  <dd class="col-sm-9">
+    <?php
+      echo $med_hist;
+    ?>
+  </dd>
 
   
 

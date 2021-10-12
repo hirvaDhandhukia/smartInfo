@@ -353,3 +353,36 @@ function printUserAge($conn, $useraadh) {
 
 	mysqli_stmt_close($stmt);
 }
+
+// function addUserMedHist($conn, $aadharno) {
+// 	$sql = "INSERT INTO med_history (aadharno) VALUES (?);";
+// 	$stmt = mysqli_stmt_init($conn);
+// 	if(!mysqli_stmt_prepare($stmt, $sql)) {
+// 		header("location: ../register.php?error=stmtfailedsendmsg");
+// 		exit();
+// 	}
+
+// 	mysqli_stmt_bind_param($stmt, "s", $aadharno);
+// 	mysqli_stmt_execute($stmt);
+// 	mysqli_stmt_close($stmt);
+
+// 	header("location: ../register.php?error=none");
+// 	exit();
+// }
+
+
+function addUserMedHist($conn, $aadharno) {
+	$sql = "INSERT INTO med_history (aadharno, age, bloodgroup, allergies, med_history) VALUES (?, ?, ?, ?, ?);";
+	$stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: ../register.php?error=stmtfailedcreateuser");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "sssss", $aadharno, $age, $bloodgroup, $allergies, $med_history);
+	mysqli_stmt_execute($stmt);
+	mysqli_stmt_close($stmt);
+
+	header("location: ../register.php?error=none");
+	exit();
+}

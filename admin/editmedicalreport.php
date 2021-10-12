@@ -123,6 +123,30 @@ if(isset($_GET['med_hist'])) {
 
 
 <?php
+// if(isset($_POST['submit-medhist'])) {
+//     // $useraadh = $GET['useraadh'];
+//   $age = $_POST['age'];
+//     $bloodgroup = $_POST['bloodgroup'];
+//     $allergies = $_POST['allergies'];
+//     $med_hist = $_POST['med_hist'];
+
+//     $sql = "UPDATE med_history SET age='$age',
+//                                   bloodgroup='$bloodgroup',
+//                                   allergies='$allergies',
+//                                   med_hist='$med_hist' 
+//                               WHERE aadharno='$useraadh';";
+//     $request = mysqli_query($conn, $sql);
+//     if($request) {
+//         header("location: index-admin.php?edit=success");
+//         // echo "Record Updated!";
+//     } else {
+//         echo "Failed. Try again";
+//     }
+
+// }
+?>
+
+<?php
 if(isset($_POST['submit-medhist'])) {
     // $useraadh = $GET['useraadh'];
   $age = $_POST['age'];
@@ -130,15 +154,15 @@ if(isset($_POST['submit-medhist'])) {
     $allergies = $_POST['allergies'];
     $med_hist = $_POST['med_hist'];
 
-    $sql = "UPDATE med_history SET age='$age',
-                                  bloodgroup='$bloodgroup',
-                                  allergies='$allergies',
-                                  med_hist='$med_hist' 
+    $sql = "INSERT INTO med_history (age, bloodgroup, allergies, med_hist) VALUES  ('$age',
+                                     '$bloodgroup',
+                                      '$allergies',
+                                      '$med_hist') 
                               WHERE aadharno='$useraadh';";
     $request = mysqli_query($conn, $sql);
     if($request) {
-        header("location: index-admin.php?edit=success");
-        // echo "Record Updated!";
+        // header("location: index-admin.php?edit=success");
+        echo "Record Updated!";
     } else {
         echo "Failed. Try again";
     }
