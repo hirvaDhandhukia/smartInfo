@@ -29,7 +29,7 @@
       }
     </style>
 
-    <title> Bootstrap Starter Template</title>
+    <title> Smart Info</title>
   </head>
   <body>
 
